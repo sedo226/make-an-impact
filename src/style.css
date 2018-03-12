@@ -1,0 +1,49 @@
+body {
+  background-color: #eeeeee;
+}
+
+.schedule-container {
+  width: 80vw;
+  margin: 20px auto;
+  font-family: Roboto, sans-serif;
+}
+.title {
+  text-align: center;
+  text-transform: uppercase;
+}
+.commentList {
+  border: 1px solid #f1f1f1;
+  padding: 0 12px;
+  max-height: 70vh;
+  overflow: scroll;
+}
+.comment {
+  background-color: #fafafa;
+  margin: 10px;
+  padding: 3px 10px;
+  font-size: 0.85rem;
+}
+.commentFormPost {
+  min-width: 75px;
+  flex: 1;
+  height: 40px;
+  margin: 5px 3px;
+  font-size: 1rem;
+  background-color: #a3cdfd;
+  border-radius: 3px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.055rem;
+  border: none;
+}
+.updateLink {
+  text-decoration: none;
+  padding-right: 15px;
+  font-size: 0.7rem;
+}
+.deleteLink {
+  text-decoration: none;
+  padding-right: 15px;
+  font-size: 0.7rem;
+  color: red;
+}
