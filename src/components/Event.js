@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./style.css";
+import "../style.css";
 import marked from "marked";
 
 class Event extends Component {
@@ -9,8 +9,8 @@ class Event extends Component {
   }
   render() {
     return (
-      <div className="comment">
-        <h3>{this.props.title}</h3>
+      <div className="scheduleEvent">
+        <h3 className="eventTitle">{this.props.title}</h3>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
       </div>
     );

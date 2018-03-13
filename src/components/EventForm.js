@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./style.css";
+import "../style.css";
 
 class EventForm extends Component {
   constructor(props) {
@@ -28,18 +28,16 @@ class EventForm extends Component {
         <div className="form-group">
           <label htmlFor="eventTitle">Event:</label>
           <input
-            type="description"
+            type="text"
             id="eventTitle"
             className="form-control"
             placeholder="Event title, petition name, volunteer opportunity... you name it!"
             value={this.state.title}
             onChange={this.handleTitleChange}
           />
-        </div>
-        <div className="form-group">
           <label htmlFor="eventDescription">Description:</label>
           <input
-            type="description"
+            type="text"
             id="eventDescription"
             className="form-control"
             placeholder="Brief description of scheduled event"

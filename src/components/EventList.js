@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Event from "./Event";
-import "./style.css";
+import "../style.css";
 
 class EventList extends Component {
   render() {
@@ -11,7 +11,7 @@ class EventList extends Component {
         </Event>
       );
     });
-    return <div className="commentList">{eventNodes}</div>;
+    return <div className="schedule">{eventNodes}</div>;
   }
 }
 
