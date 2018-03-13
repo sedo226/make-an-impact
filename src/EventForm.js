@@ -17,14 +17,16 @@ class EventForm extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log(`${this.state.title} said "${this.state.description}"`);
-    //we will be tying this into the POST method in a bit
+    console.log(
+      `${this.state.title} with description "${this.state.description}"`
+    );
+    //TODO replace with post method
   }
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
-          <label for="eventTitle">Event:</label>
+          <label htmlFor="eventTitle">Event:</label>
           <input
             type="description"
             id="eventTitle"
@@ -35,12 +37,12 @@ class EventForm extends Component {
           />
         </div>
         <div className="form-group">
-          <label for="eventDescription">Description:</label>
+          <label htmlFor="eventDescription">Description:</label>
           <input
             type="description"
             id="eventDescription"
             className="form-control"
-            placeholder="Brief description of event/opporunity."
+            placeholder="Brief description of scheduled event"
             value={this.state.description}
             onChange={this.handleDescriptionChange}
           />

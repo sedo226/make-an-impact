@@ -7,10 +7,18 @@ var Schema = mongoose.Schema;
 //create new instance of the mongoose.schema. the schema takes an object that shows
 //the shape of your database entries.
 var EventsSchema = new Schema({
-  title: String,
-  description: String,
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
   link: String,
-  date: Date
+  date: String,
+  time: String,
+  tags: Array
 });
 
 //export our module to use in server.js

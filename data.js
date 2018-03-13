@@ -5,7 +5,11 @@ const data = [
     title: "Enviornmental Protection",
     description: "testing AA"
   },
-  { id: 2, title: "Animal Right", description: "testing b" }
+  {
+    id: 2,
+    title: "Animal Right",
+    description: "testing b"
+  }
 ];
 
 module.exports = data;

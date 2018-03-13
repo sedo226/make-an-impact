@@ -1,11 +1,10 @@
-body {
-  background-color: #eeeeee;
-}
-
 .schedule-container {
   width: 80vw;
   margin: 20px auto;
   font-family: Roboto, sans-serif;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.05);
 }
 .title {
   text-align: center;

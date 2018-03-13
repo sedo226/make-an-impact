@@ -14,7 +14,7 @@ const port = process.env.API_PORT || 3001;
 
 //db config
 const mongoDB =
-  "mongodb://serradoll:Griffin1Ruca16>@ds263988.mlab.com:63988/make-an-impact";
+  "mongodb://testuser:testuser1@ds263988.mlab.com:63988/make-an-impact";
 mongoose.connect(mongoDB, { useMongoClient: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
