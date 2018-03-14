@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import EventList from "./EventList";
 import EventForm from "./EventForm";
 import axios from "axios";
-//import DATA from "../../data";
 import "../style.css";
 
 class ScheduleEvents extends Component {
