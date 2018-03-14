@@ -7,6 +7,7 @@ class EventForm extends Component {
     this.state = { title: "", description: "" };
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    //this.handleDateChange = this.handleDateChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleTitleChange(e) {
@@ -15,12 +16,18 @@ class EventForm extends Component {
   handleDescriptionChange(e) {
     this.setState({ description: e.target.value });
   }
+  // handleDateChange(e) {
+  //   this.setState({ date: e.target.value });
+  // }
   handleSubmit(e) {
     e.preventDefault();
-    console.log(
-      `${this.state.title} with description "${this.state.description}"`
-    );
-    //TODO replace with post method
+    let title = this.state.title.trim();
+    let description = this.state.description.trim();
+    if (!description || !title) {
+      return;
+    }
+    this.props.onEventSubmit({ title: title, description: description });
+    this.setState({ title: "", description: "" });
   }
   render() {
     return (
@@ -45,7 +52,23 @@ class EventForm extends Component {
             onChange={this.handleDescriptionChange}
           />
         </div>
-        <input type="submit" className="commentFormPost" value="Post" />
+        {/* <div className="form-group row">
+          <div className="col-12 col-md-6" style={{ paddingLeft: "0px" }}>
+            <label htmlFor="date-input" className="col-2 col-form-label">
+              Date
+            </label>
+            <div className="col-10">
+              <input
+                className="form-control"
+                type="date"
+                value={this.state.date}
+                id="date-input"
+                onChange={this.handleDateChange}
+              />
+            </div>
+          </div>
+        </div> */}
+        <input type="submit" className="btn btn-primary" value="Add Event" />
       </form>
     );
   }

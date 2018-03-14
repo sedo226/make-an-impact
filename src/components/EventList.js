@@ -6,7 +6,7 @@ class EventList extends Component {
   render() {
     let eventNodes = this.props.data.map(event => {
       return (
-        <Event title={event.title} key={event.id}>
+        <Event title={event.title} key={event["_id"]}>
           {event.description}
         </Event>
       );
