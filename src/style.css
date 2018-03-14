@@ -19,19 +19,6 @@
   padding: 6px 10px;
   font-size: 0.85rem;
 }
-.commentFormPost {
-  min-width: 75px;
-  flex: 1;
-  height: 40px;
-  margin: 5px 3px;
-  font-size: 1rem;
-  background-color: #a3cdfd;
-  border-radius: 3px;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.055rem;
-  border: none;
-}
 .updateLink {
   text-decoration: none;
   padding-right: 15px;
