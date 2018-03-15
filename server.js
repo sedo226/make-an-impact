@@ -43,7 +43,7 @@ router
   .route("/events")
   .get(function(req, res) {
     //looks at our Event Schema
-    Event.find(function(err, events) {
+    Event.find({ deleted: { $ne: true } }, function(err, events) {
       if (err) res.send(err);
       res.json(events);
     });
@@ -56,6 +56,38 @@ router
     event.save(function(err) {
       if (err) res.send(err);
       res.json({ message: "Event added" });
+    });
+  });
+router
+  .route("/events/:event_id")
+  .put(function(req, res) {
+    Event.findById(req.params.event_id, function(err, event) {
+      if (err) res.send(err);
+      req.body.title ? (event.title = req.body.title) : null;
+      req.body.description ? (event.description = req.body.description) : null;
+      //save updated event in db
+      event.save(function(err) {
+        if (err) res.send(err);
+        res.json({ message: "Event updated" });
+      });
+    });
+  })
+  // soft delete events from db
+  .delete(function(req, res) {
+    Event.findById(req.params.event_id, function(err, event) {
+      if (err) {
+        console.log(err);
+        return res.status(500).json(err);
+      }
+      if (!event) {
+        return res.status(404).json({ message: "Event not found" });
+      }
+      //only real diff from put handler is the line of code below
+      event.deleted = true;
+
+      event.save(function(err, doomedFile) {
+        res.json({ message: "File soft deleted" });
+      });
     });
   });
 
