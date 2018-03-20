@@ -31,8 +31,10 @@ class ScheduleEvents extends Component {
     });
   };
   handleEventDelete = id => {
-    if (confirm("Are you sure?")) {
-      console.log("File", id, "is DOOMED!!!!!!");
+    if (
+      confirm("Are you sure you want to delete this event from your schedule?")
+    ) {
+      console.log("File", id, "is set for soft deletion");
       axios
         .delete(`${this.props.url}/${id}`)
         .then(res => {
@@ -52,9 +54,12 @@ class ScheduleEvents extends Component {
       marginRight: "20px",
       color: "#2196f3"
     };
+    const scheduleHeader = {
+      marginTop: "10px"
+    };
     return (
       <div className="scheduleContainer">
-        <h2>
+        <h2 style={scheduleHeader}>
           <span className="fas fa-calendar-check" style={scheduleIcon} />My
           Schedule
         </h2>

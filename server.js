@@ -82,7 +82,7 @@ router
       if (!event) {
         return res.status(404).json({ message: "Event not found" });
       }
-      //only real diff from put handler is the line of code below
+      //only real funcational difference from our PUT handler is the line of code below:
       event.deleted = true;
 
       event.save(function(err, doomedFile) {

@@ -1,6 +1,7 @@
+/* Mobile View */
 .scheduleContainer {
-  width: 80vw;
-  margin: 20px auto;
+  width: 100vw;
+  margin: 0px;
   font-family: Roboto, sans-serif;
   background-color: #fff;
   padding: 20px;
@@ -44,6 +45,7 @@ input[type="date"]:focus {
 .eventDescription {
   font-size: 1.2em;
   margin-bottom: 30px;
+  color: #656565;
 }
 .btn.btn-primary {
   font-family: Roboto, sans-serif;
@@ -57,12 +59,12 @@ input[type="date"]:focus {
 }
 input[type="submit"].btn.btn-primary {
   font-size: 0.75em;
-  background-color: #4caf50;
-  border-color: #4caf50;
+  background-color: #3f51b5;
+  border-color: #3f51b5;
 }
 input[type="submit"].btn.btn-primary:hover {
-  background-color: #3c8c3f;
-  border-color: #3c8c3f;
+  background-color: #2e3b84;
+  border-color: #2e3b84;
 }
 input[type="submit"].btn.btn-secondary {
   font-size: 0.85em;
@@ -87,4 +89,12 @@ input[type="submit"].btn.btn-secondary:hover {
 }
 .displayBlock {
   display: block;
+}
+
+/* Desktop View */
+@media (min-width: 769px) {
+  .scheduleContainer {
+    width: 80vw;
+    margin: 20px auto;
+  }
 }

@@ -30,8 +30,18 @@ class EventForm extends Component {
     this.setState({ title: "", description: "" });
   }
   render() {
+    const addEventHeader = {
+      fontSize: "1.3em",
+      color: "#3F51B5",
+      textAlign: "center",
+      fontWeight: "400",
+      marginTop: "20px"
+    };
     return (
       <form onSubmit={this.handleSubmit}>
+        <h4 style={addEventHeader}>
+          <span className="fas fa-plus-square" /> Add An Event To My Schedule
+        </h4>
         <div className="form-group">
           <label htmlFor="eventTitle">Event:</label>
           <input
