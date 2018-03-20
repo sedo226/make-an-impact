@@ -12,6 +12,7 @@ class EventList extends Component {
           onEventDelete={this.props.onEventDelete}
           onEventUpdate={this.props.onEventUpdate}
           key={event["_id"]}
+          description={event.description}
         >
           {event.description}
         </Event>

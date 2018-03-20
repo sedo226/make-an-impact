@@ -18,6 +18,7 @@
   background-color: #fbfcff6b;
   padding: 6px 10px;
   font-size: 0.85rem;
+  position: relative;
 }
 input[type="text"],
 input[type="date"] {
@@ -33,11 +34,24 @@ input[type="date"] {
   width: 93%;
   color: #8a97a0;
 }
+input[type="text"]:focus,
+input[type="date"]:focus {
+  border-color: #5d94f8;
+}
 .eventTitle {
   font-size: 1.5em;
 }
-input[type="submit"].btn {
+input[type="submit"].btn.btn-primary {
   font-family: Roboto, sans-serif;
   text-transform: uppercase;
   font-size: 0.75em;
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+input[type="submit"].btn.btn-primary:hover {
+  background-color: #3c8c3f;
+  border-color: #3c8c3f;
+}
+.displayBlock {
+  display: block;
 }

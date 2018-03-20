@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import "../style.css";
-import marked from "marked";
+
+const updateIcon = {
+  position: "absolute",
+  top: "10px",
+  right: "40px",
+  color: "#009688"
+};
+const deleteIcon = {
+  position: "absolute",
+  top: "10px",
+  right: "10px",
+  color: "#c9302c"
+};
 
 class Event extends Component {
   constructor(props) {
@@ -11,6 +23,7 @@ class Event extends Component {
       description: ""
     };
   }
+
   updateEvent = e => {
     e.preventDefault();
     //brings up the update field when we click on the update link.
@@ -35,7 +48,7 @@ class Event extends Component {
     e.preventDefault();
     let id = this.props.uniqueID;
     this.props.onEventDelete(id);
-    console.log("oops deleted");
+    console.log("soft deleted");
   };
   handleTitleChange = e => {
     this.setState({ title: e.target.value });
@@ -43,32 +56,36 @@ class Event extends Component {
   handleDescriptionChange = e => {
     this.setState({ description: e.target.value });
   };
-  rawMarkup() {
-    let rawMarkup = marked(this.props.children.toString());
-    return { __html: rawMarkup };
-  }
   render() {
     return (
       <div className="scheduleEvent">
         <h3 className="eventTitle">{this.props.title}</h3>
-        <span dangerouslySetInnerHTML={this.rawMarkup()} />
-        <a href="#" onClick={this.updateEvent}>
-          update
+        <span>{this.props.description}</span>
+        <a href="#" onClick={this.updateEvent} style={updateIcon}>
+          <span className="fas fa-edit" />
         </a>
-        <a href="#" onClick={this.deleteEvent}>
-          delete
+        <a href="#" onClick={this.deleteEvent} style={deleteIcon}>
+          <span className="fas fa-trash-alt" />
         </a>
         {this.state.toBeUpdated ? (
           <form onSubmit={this.handleEventUpdate}>
+            <label htmlFor="title" className="displayBlock">
+              Title:
+            </label>
             <input
               type="text"
-              placeholder="TOOD"
+              id="title"
+              placeholder={this.props.title}
               value={this.state.title}
               onChange={this.handleTitleChange}
             />
+            <label htmlFor="Description" className="displayBlock">
+              Description:
+            </label>
             <input
               type="text"
-              placeholder="TODO"
+              id="description"
+              placeholder={this.props.description}
               value={this.state.description}
               onChange={this.handleDescriptionChange}
             />
