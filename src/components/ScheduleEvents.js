@@ -48,9 +48,16 @@ class ScheduleEvents extends Component {
     setInterval(this.loadEventsFromServer, this.props.pollInterval);
   }
   render() {
+    const scheduleIcon = {
+      marginRight: "20px",
+      color: "#2196f3"
+    };
     return (
       <div className="scheduleContainer">
-        <h2>My Schedule:</h2>
+        <h2>
+          <span className="fas fa-calendar-check" style={scheduleIcon} />My
+          Schedule
+        </h2>
         <EventList
           onEventDelete={this.handleEventDelete}
           onEventUpdate={this.handleEventUpdate}

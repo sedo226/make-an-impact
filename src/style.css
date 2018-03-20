@@ -7,9 +7,9 @@
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.05);
 }
 .schedule {
-  border: 1px solid #5d94f8;
+  border: 2px solid #2196f3;
   border-radius: 2px;
-  max-height: 80vh;
+  max-height: 90vh;
   overflow: scroll;
   padding: 10px;
   margin: 30px 0;
@@ -32,18 +32,30 @@ input[type="date"] {
   outline: 0;
   padding: 15px;
   width: 93%;
-  color: #8a97a0;
+  color: inherit;
 }
 input[type="text"]:focus,
 input[type="date"]:focus {
-  border-color: #5d94f8;
+  border-color: #2196f3;
 }
 .eventTitle {
   font-size: 1.5em;
 }
-input[type="submit"].btn.btn-primary {
+.eventDescription {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+.btn.btn-primary {
   font-family: Roboto, sans-serif;
   text-transform: uppercase;
+  color: #fff;
+}
+.btn.btn-secondary {
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+}
+input[type="submit"].btn.btn-primary {
   font-size: 0.75em;
   background-color: #4caf50;
   border-color: #4caf50;
@@ -51,6 +63,27 @@ input[type="submit"].btn.btn-primary {
 input[type="submit"].btn.btn-primary:hover {
   background-color: #3c8c3f;
   border-color: #3c8c3f;
+}
+input[type="submit"].btn.btn-secondary {
+  font-size: 0.85em;
+  background-color: #009688;
+  border-color: #009688;
+}
+input[type="submit"].btn.btn-secondary:hover {
+  background-color: #006d63;
+  border-color: #006d63;
+  color: #fff;
+}
+.btn.btn-secondary.cancleButton {
+  font-size: 0.85em;
+  margin-left: 10px;
+  background-color: #607d8b;
+  border-color: #607d8b;
+}
+.btn.btn-secondary.cancleButton:hover {
+  background-color: #4f6874;
+  border-color: #4f6874;
+  color: #fff;
 }
 .displayBlock {
   display: block;

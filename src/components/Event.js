@@ -1,19 +1,6 @@
 import React, { Component } from "react";
 import "../style.css";
 
-const updateIcon = {
-  position: "absolute",
-  top: "10px",
-  right: "40px",
-  color: "#009688"
-};
-const deleteIcon = {
-  position: "absolute",
-  top: "10px",
-  right: "10px",
-  color: "#c9302c"
-};
-
 class Event extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +15,9 @@ class Event extends Component {
     e.preventDefault();
     //brings up the update field when we click on the update link.
     this.setState({ toBeUpdated: !this.state.toBeUpdated });
+  };
+  cancleUpdate = () => {
+    this.setState({ toBeUpdated: false });
   };
   handleEventUpdate = e => {
     e.preventDefault();
@@ -57,10 +47,30 @@ class Event extends Component {
     this.setState({ description: e.target.value });
   };
   render() {
+    // For inline styling purposes:
+    const updateIcon = {
+      position: "absolute",
+      top: "10px",
+      right: "40px",
+      color: "#009688"
+    };
+    const deleteIcon = {
+      position: "absolute",
+      top: "10px",
+      right: "10px",
+      color: "#c9302c"
+    };
+    const updateEventHeader = {
+      fontSize: "1.3em",
+      color: "#009688",
+      textAlign: "center",
+      fontWeight: "400",
+      marginTop: "20px"
+    };
     return (
       <div className="scheduleEvent">
         <h3 className="eventTitle">{this.props.title}</h3>
-        <span>{this.props.description}</span>
+        <div className="eventDescription">{this.props.description}</div>
         <a href="#" onClick={this.updateEvent} style={updateIcon}>
           <span className="fas fa-edit" />
         </a>
@@ -69,6 +79,10 @@ class Event extends Component {
         </a>
         {this.state.toBeUpdated ? (
           <form onSubmit={this.handleEventUpdate}>
+            <hr />
+            <h4 style={updateEventHeader}>
+              <span className="fas fa-edit" /> Update Event Details
+            </h4>
             <label htmlFor="title" className="displayBlock">
               Title:
             </label>
@@ -89,7 +103,14 @@ class Event extends Component {
               value={this.state.description}
               onChange={this.handleDescriptionChange}
             />
-            <input type="submit" value="Update" />
+            <input type="submit" value="Update" className="btn btn-secondary" />
+            <button
+              className="btn btn-secondary cancleButton"
+              onClick={this.cancleUpdate}
+            >
+              Cancle
+            </button>
+            <hr />
           </form>
         ) : null}
       </div>
