@@ -61,17 +61,17 @@ class Event extends Component {
       position: "absolute",
       top: "10px",
       right: "40px",
-      color: "#009688"
+      color: "#4CAF50"
     };
     const deleteIcon = {
       position: "absolute",
       top: "10px",
       right: "10px",
-      color: "#c9302c"
+      color: "#F44336"
     };
     const updateEventHeader = {
-      fontSize: "1.3em",
-      color: "#009688",
+      fontSize: "1em",
+      color: "#4CAF50",
       textAlign: "center",
       fontWeight: "400",
       marginTop: "20px"
@@ -108,8 +108,9 @@ class Event extends Component {
               <label htmlFor="Description" className="displayBlock">
                 Description:
               </label>
-              <input
+              <textarea
                 type="text"
+                rows="3"
                 id="description"
                 placeholder={this.props.description}
                 value={this.state.description}

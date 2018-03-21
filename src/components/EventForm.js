@@ -37,8 +37,8 @@ class EventForm extends Component {
   render() {
     //for inline style:
     const addEventHeader = {
-      fontSize: "1.3em",
-      color: "#3F51B5",
+      fontSize: "1.2em",
+      color: "#03A9F4",
       textAlign: "center",
       fontWeight: "400",
       marginTop: "20px"
@@ -60,8 +60,9 @@ class EventForm extends Component {
             onChange={this.handleTitleChange}
           />
           <label htmlFor="eventDescription">Description:</label>
-          <input
+          <textarea
             type="text"
+            rows="3"
             id="eventDescription"
             className="form-control"
             placeholder="Brief description of scheduled event"
