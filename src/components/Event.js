@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import "../style.css";
 
+const dateTransform = dateData => {
+  let dateObject = new Date(Date.parse(dateData));
+  let dateReadable = dateObject.toDateString();
+  return dateReadable;
+};
+
 class Event extends Component {
   constructor(props) {
     super(props);
@@ -55,6 +61,7 @@ class Event extends Component {
   handleDateChange = e => {
     this.setState({ eventDate: e.target.value });
   };
+
   render() {
     //for inline styling purposes:
     const updateIcon = {
@@ -79,7 +86,7 @@ class Event extends Component {
 
     return (
       <div className="scheduleEvent">
-        <h5 className="eventDate">{this.props.eventDate}</h5>
+        <h5 className="eventDate">{dateTransform(this.props.eventDate)}</h5>
         <h3 className="eventTitle">{this.props.title}</h3>
         <div className="eventDescription">{this.props.description}</div>
         <a href="#" onClick={this.updateEvent} style={updateIcon}>
