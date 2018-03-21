@@ -4,10 +4,10 @@ import "../style.css";
 class EventForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: "", description: "" };
+    this.state = { title: "", description: "", eventDate: "" };
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    //this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleTitleChange(e) {
@@ -16,20 +16,26 @@ class EventForm extends Component {
   handleDescriptionChange(e) {
     this.setState({ description: e.target.value });
   }
-  // handleDateChange(e) {
-  //   this.setState({ date: e.target.value });
-  // }
+  handleDateChange(e) {
+    this.setState({ eventDate: e.target.value });
+  }
   handleSubmit(e) {
     e.preventDefault();
     let title = this.state.title.trim();
     let description = this.state.description.trim();
-    if (!description || !title) {
+    let eventDate = this.state.eventDate.trim();
+    if (!description || !title || !eventDate) {
       return;
     }
-    this.props.onEventSubmit({ title: title, description: description });
-    this.setState({ title: "", description: "" });
+    this.props.onEventSubmit({
+      title: title,
+      description: description,
+      eventDate: eventDate
+    });
+    this.setState({ title: "", description: "", eventDate: "" });
   }
   render() {
+    //for inline style:
     const addEventHeader = {
       fontSize: "1.3em",
       color: "#3F51B5",
@@ -37,6 +43,7 @@ class EventForm extends Component {
       fontWeight: "400",
       marginTop: "20px"
     };
+
     return (
       <form onSubmit={this.handleSubmit}>
         <h4 style={addEventHeader}>
@@ -62,22 +69,22 @@ class EventForm extends Component {
             onChange={this.handleDescriptionChange}
           />
         </div>
-        {/* <div className="form-group row">
+        <div className="form-group row">
           <div className="col-12 col-md-6" style={{ paddingLeft: "0px" }}>
             <label htmlFor="date-input" className="col-2 col-form-label">
-              Date
+              Date:
             </label>
             <div className="col-10">
               <input
                 className="form-control"
                 type="date"
-                value={this.state.date}
+                value={this.state.eventDate}
                 id="date-input"
                 onChange={this.handleDateChange}
               />
             </div>
           </div>
-        </div> */}
+        </div>
         <input type="submit" className="btn btn-primary" value="Add Event" />
       </form>
     );

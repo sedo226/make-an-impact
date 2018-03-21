@@ -7,38 +7,44 @@ class Event extends Component {
     this.state = {
       toBeUpdated: false,
       title: "",
-      description: ""
+      description: "",
+      eventDate: ""
     };
   }
 
   updateEvent = e => {
     e.preventDefault();
-    //brings up the update field when we click on the update link.
+    //open update form
     this.setState({ toBeUpdated: !this.state.toBeUpdated });
   };
   cancleUpdate = () => {
+    //close update form
     this.setState({ toBeUpdated: false });
   };
   handleEventUpdate = e => {
     e.preventDefault();
     let id = this.props.uniqueID;
-    //if title or description changed, set it. if not, leave null and our PUT request
-    //will ignore it.
     let title = this.state.title ? this.state.title : null;
     let description = this.state.description ? this.state.description : null;
-    let event = { title: title, description: description };
+    let eventDate = this.state.eventDate ? this.state.eventDate : null;
+    let event = {
+      title: title,
+      description: description,
+      eventDate: eventDate
+    };
     this.props.onEventUpdate(id, event);
     this.setState({
       toBeUpdated: !this.state.toBeUpdated,
       title: "",
-      description: ""
+      description: "",
+      eventDate: ""
     });
   };
   deleteEvent = e => {
     e.preventDefault();
     let id = this.props.uniqueID;
     this.props.onEventDelete(id);
-    console.log("soft deleted");
+    console.log("soft delete");
   };
   handleTitleChange = e => {
     this.setState({ title: e.target.value });
@@ -46,8 +52,11 @@ class Event extends Component {
   handleDescriptionChange = e => {
     this.setState({ description: e.target.value });
   };
+  handleDateChange = e => {
+    this.setState({ eventDate: e.target.value });
+  };
   render() {
-    // For inline styling purposes:
+    //for inline styling purposes:
     const updateIcon = {
       position: "absolute",
       top: "10px",
@@ -67,8 +76,10 @@ class Event extends Component {
       fontWeight: "400",
       marginTop: "20px"
     };
+
     return (
       <div className="scheduleEvent">
+        <h5 className="eventDate">{this.props.eventDate}</h5>
         <h3 className="eventTitle">{this.props.title}</h3>
         <div className="eventDescription">{this.props.description}</div>
         <a href="#" onClick={this.updateEvent} style={updateIcon}>
@@ -83,26 +94,44 @@ class Event extends Component {
             <h4 style={updateEventHeader}>
               <span className="fas fa-edit" /> Update Event Details
             </h4>
-            <label htmlFor="title" className="displayBlock">
-              Title:
-            </label>
-            <input
-              type="text"
-              id="title"
-              placeholder={this.props.title}
-              value={this.state.title}
-              onChange={this.handleTitleChange}
-            />
-            <label htmlFor="Description" className="displayBlock">
-              Description:
-            </label>
-            <input
-              type="text"
-              id="description"
-              placeholder={this.props.description}
-              value={this.state.description}
-              onChange={this.handleDescriptionChange}
-            />
+            <div className="form-group">
+              <label htmlFor="title" className="displayBlock">
+                Title:
+              </label>
+              <input
+                type="text"
+                id="title"
+                placeholder={this.props.title}
+                value={this.state.title}
+                onChange={this.handleTitleChange}
+              />
+              <label htmlFor="Description" className="displayBlock">
+                Description:
+              </label>
+              <input
+                type="text"
+                id="description"
+                placeholder={this.props.description}
+                value={this.state.description}
+                onChange={this.handleDescriptionChange}
+              />
+            </div>
+            <div className="form-group row">
+              <div className="col-12 col-md-6" style={{ paddingLeft: "0px" }}>
+                <label htmlFor="date" className="col-2 col-form-label">
+                  Date:
+                </label>
+                <div className="col-10">
+                  <input
+                    className="form-control"
+                    type="date"
+                    value={this.state.eventDate}
+                    id="date"
+                    onChange={this.handleDateChange}
+                  />
+                </div>
+              </div>
+            </div>
             <input type="submit" value="Update" className="btn btn-secondary" />
             <button
               className="btn btn-secondary cancleButton"

@@ -13,7 +13,9 @@ class EventList extends Component {
           onEventUpdate={this.props.onEventUpdate}
           key={event["_id"]}
           description={event.description}
-        />
+        >
+          {event.eventDate}
+        </Event>
       );
     });
     return <div className="schedule">{eventNodes}</div>;

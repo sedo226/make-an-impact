@@ -50,6 +50,7 @@ class ScheduleEvents extends Component {
     setInterval(this.loadEventsFromServer, this.props.pollInterval);
   }
   render() {
+    // for inline styling:
     const scheduleIcon = {
       marginRight: "20px",
       color: "#2196f3"
@@ -57,6 +58,7 @@ class ScheduleEvents extends Component {
     const scheduleHeader = {
       marginTop: "10px"
     };
+
     return (
       <div className="scheduleContainer">
         <h2 style={scheduleHeader}>

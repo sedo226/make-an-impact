@@ -53,6 +53,7 @@ router
     var event = new Event();
     event.title = req.body.title;
     event.description = req.body.description;
+    event.eventDate = req.body.eventDate;
     event.save(function(err) {
       if (err) res.send(err);
       res.json({ message: "Event added" });
@@ -65,6 +66,7 @@ router
       if (err) res.send(err);
       req.body.title ? (event.title = req.body.title) : null;
       req.body.description ? (event.description = req.body.description) : null;
+      req.body.eventDate ? (event.eventDate = req.body.eventDate) : null;
       //save updated event in db
       event.save(function(err) {
         if (err) res.send(err);
