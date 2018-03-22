@@ -6,6 +6,15 @@ const dateTransform = dateData => {
   let dateReadable = dateObject.toDateString();
   return dateReadable;
 };
+const timeTransform = timeData => {
+  if (timeData && timeData.includes("00:00:00.000Z")) {
+    return " No time specified";
+  } else {
+    let timeObject = new Date(Date.parse(timeData));
+    let timeReadable = timeObject.toTimeString();
+    return timeReadable;
+  }
+};
 
 class Event extends Component {
   constructor(props) {
@@ -86,7 +95,10 @@ class Event extends Component {
 
     return (
       <div className="scheduleEvent">
-        <h5 className="eventDate">{dateTransform(this.props.eventDate)}</h5>
+        <h5 className="eventDate">
+          {dateTransform(this.props.eventDate)} -
+          {timeTransform(this.props.eventDate)}
+        </h5>
         <h3 className="eventTitle">{this.props.title}</h3>
         <div className="eventDescription">{this.props.description}</div>
         <a href="#" onClick={this.updateEvent} style={updateIcon}>
@@ -125,14 +137,14 @@ class Event extends Component {
               />
             </div>
             <div className="form-group row">
-              <div className="col-12 col-md-6" style={{ paddingLeft: "0px" }}>
+              <div className="col-12 col-md-4" style={{ paddingLeft: "0px" }}>
                 <label htmlFor="date" className="col-2 col-form-label">
                   Date:
                 </label>
                 <div className="col-10">
                   <input
                     className="form-control"
-                    type="date"
+                    type="datetime-local"
                     value={this.state.eventDate}
                     id="date"
                     onChange={this.handleDateChange}

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "../style.css";
+// import DateTime from "./DateTime";
+// import EventTags from "./EventTags";
 
 class EventForm extends Component {
   constructor(props) {
@@ -24,7 +26,7 @@ class EventForm extends Component {
     let title = this.state.title.trim();
     let description = this.state.description.trim();
     let eventDate = this.state.eventDate.trim();
-    if (!description || !title || !eventDate) {
+    if (!description || !title) {
       return;
     }
     this.props.onEventSubmit({
@@ -47,7 +49,7 @@ class EventForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <h4 style={addEventHeader}>
-          <span className="fas fa-plus-square" /> Add An Event To My Schedule
+          <span className="fas fa-plus-square" /> Add An Event
         </h4>
         <div className="form-group">
           <label htmlFor="eventTitle">Event:</label>
@@ -71,14 +73,14 @@ class EventForm extends Component {
           />
         </div>
         <div className="form-group row">
-          <div className="col-12 col-md-6" style={{ paddingLeft: "0px" }}>
+          <div className="col-12 col-md-4" style={{ paddingLeft: "0px" }}>
             <label htmlFor="date-input" className="col-2 col-form-label">
               Date:
             </label>
             <div className="col-10">
               <input
                 className="form-control"
-                type="date"
+                type="datetime-local"
                 value={this.state.eventDate}
                 id="date-input"
                 onChange={this.handleDateChange}
