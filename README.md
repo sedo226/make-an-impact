@@ -1,15 +1,15 @@
 # Make an Impact
 
-This is a full stack javascript project using the MERN stack. It is still in it's beginning stages with basic CRUD functions operational. 
+This is a full stack javascript project using the MERN stack. It is still in its beginning stages with basic CRUD functions operational. 
 
 The project's concept is a schedule app focusing on events that can help people make an impact in society. Events could be volunteer opportunities, ways to get involved proactively in politics, community gatherings etc.
 
-The user would be able to add/edit their own events directly on their 'My Schedule' page, or add events from the 'Find Events' page to their schedule.
+Users would be able to add/edit their own events directly on their 'My Schedule' page, or add events from the 'Find Events' page to their 'My Schedule' page.
 
 **3/28/18 - Current State of App:**
-- Single schedule page with ability to create, view, update, and delete events on the 'My Schedule' page
+- Single 'My Schedule' page with ability to create, view, update, and delete events on page
 - To Do:
-    * Add 'Find Events' page & ability to add those events to the users 'My Schedule' page
+    * Add 'Find Events' page & ability to add those events to the user's 'My Schedule' page
     * Add users and user authentication
 
 
