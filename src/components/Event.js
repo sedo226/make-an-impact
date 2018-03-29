@@ -3,7 +3,7 @@ import "../style.css";
 import Moment from "react-moment";
 import "moment-timezone";
 
-Moment.globalFormat = "D MMM YYYY - hh:mm a";
+Moment.globalFormat = "MMM D, YYYY - hh:mm a";
 // const dateTransform = dateData => {
 //   let dateObject = new Date(Date.parse(dateData));
 //   let dateReadable = dateObject.toDateString();
