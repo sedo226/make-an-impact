@@ -161,7 +161,7 @@ class Event extends Component {
               className="btn btn-secondary cancleButton"
               onClick={this.cancleUpdate}
             >
-              Cancle
+              Cancel
             </button>
             <hr />
           </form>
