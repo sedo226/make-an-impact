@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import "../style.css";
+import Moment from "react-moment";
+import "moment-timezone";
 
-const dateTransform = dateData => {
-  let dateObject = new Date(Date.parse(dateData));
-  let dateReadable = dateObject.toDateString();
-  return dateReadable;
-};
-const timeTransform = timeData => {
-  if (timeData && timeData.includes("00:00:00.000Z")) {
-    return " No time specified";
-  } else {
-    let timeObject = new Date(Date.parse(timeData));
-    let timeReadable = timeObject.toTimeString();
-    return timeReadable;
-  }
-};
+Moment.globalFormat = "D MMM YYYY - hh:mm a";
+// const dateTransform = dateData => {
+//   let dateObject = new Date(Date.parse(dateData));
+//   let dateReadable = dateObject.toDateString();
+//   return dateReadable;
+// };
+// const timeTransform = timeData => {
+//   if (timeData && timeData.includes("00:00:00.000Z")) {
+//     return " No time specified";
+//   } else {
+//     let timeObject = new Date(Date.parse(timeData));
+//     let timeReadable = " " + timeObject.toTimeString();
+//     return timeReadable;
+//   }
+// };
 
 class Event extends Component {
   constructor(props) {
@@ -96,8 +99,9 @@ class Event extends Component {
     return (
       <div className="scheduleEvent">
         <h5 className="eventDate">
-          {dateTransform(this.props.eventDate)} -
-          {timeTransform(this.props.eventDate)}
+          <Moment>{this.props.eventDate}</Moment>
+          {/* {dateTransform(this.props.eventDate)} -
+          {timeTransform(this.props.eventDate)} */}
         </h5>
         <h3 className="eventTitle">{this.props.title}</h3>
         <div className="eventDescription">{this.props.description}</div>
