@@ -4,7 +4,10 @@ import "../style.css";
 
 class EventList extends Component {
   render() {
-    let eventNodes = this.props.data.map(event => {
+    let sortedData = this.props.data.sort(function(a, b) {
+      return new Date(a.eventDate) - new Date(b.eventDate);
+    });
+    let eventNodes = sortedData.map(event => {
       return (
         <Event
           title={event.title}

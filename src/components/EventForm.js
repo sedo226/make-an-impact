@@ -75,7 +75,7 @@ class EventForm extends Component {
         <div className="form-group row">
           <div className="col-12 col-md-4" style={{ paddingLeft: "0px" }}>
             <label htmlFor="date-input" className="col-2 col-form-label">
-              Date:
+              Date/Time:
             </label>
             <div className="col-10">
               <input
